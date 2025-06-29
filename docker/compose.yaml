@@ -1,0 +1,45 @@
+version: "3.8"
+
+name: "Notebook"
+services:
+  app:
+    depends_on:
+      db:
+        condition: service_healthy
+    build: ../app/.
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "postgresql://postgres:password@db:5432/notebook"
+      AUTH_DATABASE_URL: "postgresql://postgres:password@db:5432/auth"
+    volumes:
+      - ../app/prisma:/app/prisma
+    command: sh -c "wait-for-it.sh db:5432 --timeout=60 -- npx @better-auth/cli generate --y && npx @better-auth/cli migrate --y && npx prisma generate && npx prisma migrate deploy && npm run dev"
+    develop:
+      watch:
+        # - action: rebuild
+        #   path: ../app/package.json
+        - action: sync+restart
+          path: ../app/server.js
+          target: /app/server.js
+        - action: sync
+          path: ../app
+          target: /app
+
+  db:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "auth", "-U", "postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  db-data:
