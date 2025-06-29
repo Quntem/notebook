@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 const ibmPlexSans = IBM_Plex_Sans({
-    subsets: ["latin"],
-    weight: "400",
-    style: "normal",
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal",
+});
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: "400",
+  style: "normal"
 });
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ibmPlexSans.className} antialiased`}
+        className={`${ibmPlexSans.className} ${ibmPlexMono.className} antialiased`}
       >
         <Providers>{children}</Providers>
       </body>
