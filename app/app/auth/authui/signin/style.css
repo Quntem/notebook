@@ -134,3 +134,13 @@ h1 {
     flex-direction: column;
     gap: 4px;
 }
+
+.auth__or {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    color: var(--text);
+    width: 100%;
+}

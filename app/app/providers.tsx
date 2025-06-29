@@ -20,6 +20,10 @@ export function Providers({ children }: { children: ReactNode }) {
                 router.refresh()
             }}
             Link={Link}
+            viewPaths={{
+                SIGN_IN: "/authui/signin",
+                SIGN_UP: "/authui/signup",
+            }}
         >
             {children}
         </AuthUIProvider>
