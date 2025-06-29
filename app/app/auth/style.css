@@ -1,3 +1,136 @@
 :root {
     background-image: url(/Background.svg);
+    --border: rgba(255, 255, 255, 0.12);
+    --background: rgba(255, 255, 255, 0.07);
+    --text: #FFF;
+    --transition: all 150ms ease;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: none;
+    color: var(--text);
+}
+
+button {
+    cursor: pointer;
+    color: var(--text);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-radius: 12px;
+    
+    box-shadow: rgba(255, 255, 255, 0.1) 5px 5px, rgba(255, 255, 255, 0.066) 10px 10px, rgba(255, 255, 255, 0.033) 15px 15px;
+
+    padding: 6px 16px;
+
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: scale(1.03) rotate(-0.5deg);
+    filter: brightness(0.97);
+}
+
+button:active {
+    filter: brightness(0.9);
+}
+
+input {
+    cursor: text;
+    color: var(--text);
+    border-radius: 12px;
+
+    padding: 6px 16px;
+    outline: none;
+
+    transition: var(--transition);
+}
+
+input:hover {
+    transform: scale(1.03) rotate(-0.5deg);
+    filter: brightness(0.97);
+}
+
+input:active {
+    filter: brightness(0.9);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+label {
+    cursor: text;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.regular-glassmorphism {
+    border: 2px solid var(--border);
+    background: var(--background);
+    backdrop-filter: blur(9px);
+}
+
+.auth__background {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin: auto 120px;
+    border-radius: 24px;
+    border: 4px solid var(--border);
+    background: var(--background);
+    backdrop-filter: blur(9px);
+    height: calc(100% - 160px);
+    width: calc(100% - 240px);
+}
+
+.auth__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+    width: 35%;
+    padding: 5% 5%;
+
+    border-right: 4px solid var(--border);
+}
+
+.auth__heading {
+    text-transform: uppercase;
+}
+
+.auth__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 5% 15%;
+    width: 65%;
+}
+
+.auth__continue-btn {
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.auth__input p {
+    font-size: 0.8em;
+}
+
+.auth__input {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }

@@ -19,7 +19,7 @@ model Note {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String
-  content   String
+  content   Json?
   ownerID   String
-  orgID     String
+  orgID     String?
 }
