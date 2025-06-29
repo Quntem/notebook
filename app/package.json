@@ -11,6 +11,8 @@
   "dependencies": {
     "@better-auth/cli": "^1.2.12",
     "@daveyplate/better-auth-ui": "^2.0.9",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-slot": "^1.2.3",
     "@types/pg": "^8.15.4",
     "better-auth": "^1.2.12",
     "class-variance-authority": "^0.7.1",
