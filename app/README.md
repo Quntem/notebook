@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Notebook
 
-First, run the development server:
+Quntem's latest project: an amazing, open-source alternative to Google Docs and Microsoft Word. Heads up: this project was made for [Hack Club's Summer of Making](https://summer.hackclub.com/) and may be quite unstable! Feel free to contribute to the repository and reporting critical issues that need to be seen immediately!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What is Notebook?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Notebook is a cool and community-driven alternative to Google Docs and Microsoft Word and was made for [de-googlization](https://en.wikipedia.org/wiki/DeGoogle). It has many features that Docs and Word doesn't have in the works- and we hope to see you enjoy them! Please star the repository to keep Notebook **free**, forever.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How do you use Notebook?
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+We currently don't have a way for users to quickly access Notebook with a website. This is because Notebook is currently in heavy development- most features have not been done and are waiting to receive further testing. The only way you could test Notebook is to request for the .env file and host it locally. We are very sorry for the inconvenience this may cause.
 
-## Learn More
+## Why Notebook?
 
-To learn more about Next.js, take a look at the following resources:
+We offer more features than similar apps such as Google Docs and Microsoft Word such as:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Notebook Script
+- Signing in with **Google** _(Not recommended)_, **Discord** and **Github**.
+- APIs
