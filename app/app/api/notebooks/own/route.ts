@@ -37,3 +37,38 @@ export async function POST(request: Request) {
     })
     return new Response(JSON.stringify(notebook), { status: 200 })
 }
+
+export async function PATCH(request: Request) {
+    const session = await auth.api.getSession({
+        headers: request.headers
+    })
+    if (!session) {
+        return new Response("Unauthorized", { status: 401 })
+    }
+    const body = await request.json()
+    const notebook = await prisma.note.update({
+        where: {
+            id: body.id
+        },
+        data: {
+            title: body.title
+        }
+    })
+    return new Response(JSON.stringify(notebook), { status: 200 })
+}
+
+export async function DELETE(request: Request) {
+    const session = await auth.api.getSession({
+        headers: request.headers
+    })
+    if (!session) {
+        return new Response("Unauthorized", { status: 401 })
+    }
+    const body = await request.json()
+    const notebook = await prisma.note.delete({
+        where: {
+            id: body.id
+        }
+    })
+    return new Response(JSON.stringify(notebook), { status: 200 })
+}

@@ -17,6 +17,9 @@ export default function LibraryLayout({ children }: { children: React.ReactNode 
     const notebooks = useNotebookList()
     return (
         <notebookListContext.Provider value={notebooks}>
+            <div className="childrenlayoutarea">
+                {children}
+            </div>
             <div className="header">
                 <UserButton size="sm" className="header_user_button" />
                 <div className="header_slash">/</div>
@@ -24,28 +27,30 @@ export default function LibraryLayout({ children }: { children: React.ReactNode 
                 <div style={{ flex: 1 }}></div>
                 <Dialog>
                     <DialogTrigger asChild>
-                        <Button variant="outline"><PlusIcon /> Create notebook</Button>
+                        <Button variant="outline"><PlusIcon /> {window.innerWidth < 450 ? "" : "Create notebook"}</Button>
                     </DialogTrigger>
-                    <DialogContent>
-                        <DialogHeader>
-                            <DialogTitle>Create notebook</DialogTitle>
-                            <DialogDescription>
-                                Give your notebook a name
-                            </DialogDescription>
-                        </DialogHeader>
-                        <Input placeholder="Notebook name" value={notebookName} onChange={(e) => setNotebookName(e.target.value)} />
-                        <DialogFooter>
-                            <DialogClose asChild>
-                                <Button variant="outline">Cancel</Button>
-                            </DialogClose>
-                            <DialogClose asChild>
-                                <Button onClick={() => {createNotebook(notebookName); notebooks.reload()}}>Create</Button>
-                            </DialogClose>
-                        </DialogFooter>
+                    <DialogContent style={{ padding: 0, border: "none", overflow: "hidden" }}>
+                        <img src="/createimage.svg" style={{ height: 200, width: "100%", objectFit: "cover" }} />
+                        <div style={{ padding: 20, paddingTop: 10, display: "flex", flexDirection: "column", gap: 20 }}>
+                            <DialogHeader>
+                                <DialogTitle>Create notebook</DialogTitle>
+                                <DialogDescription>
+                                    Give your notebook a name
+                                </DialogDescription>
+                            </DialogHeader>
+                            <Input placeholder="Notebook name" value={notebookName} onChange={(e) => setNotebookName(e.target.value)} />
+                            <DialogFooter>
+                                <DialogClose asChild>
+                                    <Button variant="outline">Cancel</Button>
+                                </DialogClose>
+                                <DialogClose asChild>
+                                    <Button onClick={() => {createNotebook(notebookName); notebooks.reload()}}>Create</Button>
+                                </DialogClose>
+                            </DialogFooter>
+                        </div>
                     </DialogContent>
                 </Dialog>
             </div>
-            {children}
         </notebookListContext.Provider>
     )
 }

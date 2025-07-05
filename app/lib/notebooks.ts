@@ -24,3 +24,25 @@ export async function createNotebook(title: string): Promise<Note> {
     })
     return await notebook.json()
 }
+
+export async function renameNotebook(notebook: Note, title: string) {
+    const req = await fetch("/api/notebooks/own", {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ title, id: notebook.id })
+    })
+    return await req.json()
+}
+
+export async function deleteNotebook(notebook: Note) {
+    const req = await fetch("/api/notebooks/own", {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id: notebook.id })
+    })
+    return await req.json()
+}
